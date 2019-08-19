@@ -3,6 +3,7 @@
 #1. Tuple warm up:
 #    1. Look at the code in `warmup1.py`. What do you think this `tuple` is storing? If I tell you it is storing the four suits of a standard card deck, can you tell me why it's appropriate that I use a `tuple` for this?
 
+print(" - - - - - - - - Tuple warm up- - - - - - - - - - ")
 my_tup = ('diamond', 'club', 'spade', 'heart',[])
 print(my_tup[::2])
 print("#Tuple is storing the kinds of cards, and it's appropriate to use concept of tuple because there are classifications")
@@ -51,15 +52,93 @@ print("Because it is a list with states and we want to associate each one with t
 
 #    3. Okay, so you will by now have noticed what it printed. Change the `element` variable that is storing the key through each iteration of the loop to be a more descriptive variable name.
     
-print("Diccionario es: "+str(my_dct))
-for element in range(8):
-    my_dct.update({"name of state":element})
-print("Diccionario cambió a: "+str(my_dct))
+for state in my_dct:
+    print(state)
 
 #    4. Now, change the loop so that it not only prints the `key` at every iteration, but both the `key` and `value` (i.e. print the state as well as the city in the loop).
 
+for state in my_dct:
+    print(state, my_dct[state])
 
 #    5. Build another dictionary that stores the state and capital of the state you grew up in, as well as the state and capital of the state your neighbor grew up in. Call this `neighbor_dct`, and put it on the second line of the `warmup2.py` script (before the `for` loop).
+
+print('Ex. no 5 -------')
+my_dct = {'Texas': 'Austin', 'Indiana': 'Indianapolis', 'Illinois': 'Chicago', 'New York': 'New York City'}
+neighbor_dct = {'Nuevo León': 'Monterrey', 'Chihuahua':'Chihuahua'}
+for state in my_dct:
+    print(state)
+
+
 #    6. Now, add a line before the for loop that adds the key-value pairs in `neighbor_dct` to `my_dct`. `my_dct` should now have the contents from it's previous state and also `neighbor_dct`.
+
+print('Ex. no 6 -------')
+my_dct = {'Texas': 'Austin', 'Indiana': 'Indianapolis', 'Illinois': 'Chicago', 'New York': 'New York City'}
+neighbor_dct = {'Nuevo León': 'Monterrey', 'Chihuahua':'Chihuahua'}
+
+my_dct.update(neighbor_dct)
+for state in my_dct:
+    print(state,my_dct[state])
+
 #    7. Modify `warmup2.py` to take in a user inputted state. Then, take that user inputted state, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'.
+
+print('Ex. no 7 -------')
+
+my_dct = {'Texas': 'Austin', 'Indiana': 'Indianapolis', 'Illinois': 'Chicago', 'New York': 'New York City'}
+
+userinput = input("Please tell us the state?")
+x=0
+
+for element in my_dct:
+    if userinput == element:
+        print(element)
+        break
+    else:
+        x=x+1
+        
+if x>=4:
+    print("Capital not found!")
+
+
+
 #    8. Now, modify `warmup2.py` to ask the user for a state name. If it is not already in `my_dct`, have your script prompt the user for a capital to associate with that state name.
+
+print('Ex. no 8 -------')
+
+
+
+print("Length: ",len(my_dct))
+my_dct = {'Texas': 'Austin', 'Indiana': 'Indianapolis', 'Illinois': 'Chicago', 'New York': 'New York City'}
+
+userinput = input("Please tell us the state?")
+x=0
+
+for element in my_dct:
+    if userinput == element:
+        print("Capital of ",element," is ",my_dct[element])
+        break
+    else:
+        x=x+1
+        
+if x>=len(my_dct):
+    newcapital = input("Please tell us the capital for the new state?")
+
+my_dct.update({userinput:newcapital})
+
+print("My new dictionary is: ",my_dct)
+
+
+#3. Set warm up:
+#    1. Run `warmup3.py`. Why are we able to use a `for` loop to print out the elements of `my_set`?
+
+print("- - - - - - - - - - - - - - - - - ")
+print("- - - - SET PROBLEMS- - - - - - - - ")
+
+my_set = {2, 3, 5}
+for num in my_set:
+    print(num)
+
+#    2. On the second line, create a new set (you'll have to move the `for` and everything below it down one line). Call it `my_fav_primes`, and enter 3 of your favorite prime numbers.
+#    3. Now, move everything down one more line, and create a third set that gives the numbers that `my_set` and `my_fav_primes` have in common. Alter the `for` loop to print out the numbers in this new `set`.  
+#    4. Change your code to get only the numbers that are in `my_set` but aren't in `my_fav_primes`. Store these in a third set, and alter the `for` loop to print out the numbers in this third set.
+#    5. Create a new set with the elements from both `my_fav_primes` and `my_set`, and name it `my_tot_primes`. Alter the `for` loop to print out its values.
+#    6. Now, modify `warmup3.py` to take in a user inputted prime, and then add it to `my_tot_primes`.
